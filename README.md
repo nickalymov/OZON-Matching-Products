@@ -1,56 +1,76 @@
 # OZON-Matching-Products
-## ML-соревнование Ozon Tech: Матчинг товаров
-Этот репозиторий содержит решение задачи определения идентичности товаров по их названиям, атрибутам и изображениям. Работа выполнена в рамках соревнования Ozon Tech и заняла 7-е место из 110 команд с результатом ROC-AUC = 0.9216.
+## Ozon Tech ML Competition: Product Matching
+This repository contains a solution to the product matching task based on product names, attributes, and images. The work was done as part of the Ozon Tech competition and achieved 7th place out of 110 teams with a ROC-AUC score of 0.9216.
 
-## 🚀 Задача
-Разработать модель машинного обучения, которая по данным о двух товарах (текстовое описание, изображения, атрибуты) предсказывает, являются ли они одинаковыми (target = 1) или нет (target = 0).
+## 🚀 Task
+Develop a machine learning model that, given information about two products (text descriptions, images, attributes), predicts whether they are the same (target = 1) or not (target = 0).
 
-## 📦 Данные
-Организаторы предоставили следующие датасеты:
+## 📦 Data
+The organizers provided the following datasets:
 
-train.csv – пары товаров с меткой (variantid1, variantid2, target)
-test.csv – аналогично, но без меток
-attributes.csv – категории и атрибуты товаров
-text.csv – названия, описания и BERT-эмбеддинги
-resnet.csv – ResNet-эмбеддинги изображений товаров
+train.csv – pairs of products with a label (variantid1, variantid2, target)
 
-## 🔧 Обработка данных
-Обработка включает базовую чистку и генерацию признаков на основе:
-текстовых данных (расстояние Левенштейна, Жаккар, длина строк и др.)
-категорий (совпадения, подкатегории)
-атрибутов (Жаккар, различие в количестве, бинарные признаки)
-эмбеддингов изображений (косинусное и евклидово расстояние, энтропия)
+test.csv – same format, but without labels
 
-Больше деталей см. в ноутбуках:
+attributes.csv – product categories and attributes
+
+text.csv – titles, descriptions, and BERT embeddings
+
+resnet.csv – ResNet embeddings of product images
+
+## 🔧 Data Processing
+Processing includes basic cleaning and feature generation based on:
+
+Textual data: Levenshtein distance, Jaccard similarity, string length, etc.
+
+Categories: matches and subcategories
+
+Attributes: Jaccard similarity, difference in counts, binary flags
+
+Image embeddings: cosine and Euclidean distances, entropy
+
+For more details, see the notebooks:
+
 1_main_features.ipynb
+
 2_add_cat_features.ipynb
 
-## 🧠 Модели
+## 🧠 Models
 ### 1. AutoGluon Tabular (0.9216)
-Мульти-модельный стек с автоматическим ансамблированием. Использованы пресеты:
-best_quality — для максимальной точности
-zeroshot — для ускорения экспериментов
+A multi-model stack with automatic ensembling. Presets used:
 
+best_quality — for maximum accuracy
 
-📸 Используемые модели внутри AutoGluon:
+zeroshot — for faster experimentation
+
+Files:
+
+autogluon.ipynb – training and hyperparameter tuning
+
+ag_inference.ipynb – loading model predictions
+
+📸 Models used within AutoGluon:
 ![image](https://github.com/user-attachments/assets/02dd26a5-79e8-48d6-b932-ed624a16e689)
 
 
 ### 2. HistGradientBoosting + Optuna (0.91)
-Альтернативный легковесный пайплайн на базе HistGradientBoostingClassifier из sklearn, оптимизированный через Optuna.
+An alternative lightweight pipeline using HistGradientBoostingClassifier from sklearn, optimized with Optuna.
 
-Отлично справляется с дисбалансом
+Handles class imbalance well
 
-Минимальное время инференса
-Готов к интеграции в продакшн
+Minimal inference time
 
-Файлы:
-training_hgb.ipynb – обучение и подбор гиперпараметров
-inference.ipynb – полный цикл: от сырых данных до предсказаний
+Ready for production integration
 
-## 🏁 Результаты
-AutoGluon (stacked): ROC-AUC 0.9216 – топ-7 в лидерборде
-HistGradientBoosting + Optuna: быстрее, чуть ниже по метрике, но удобен для продакшена
+Files:
 
-## 🔍 Анализ
-Решение показало высокий результат за счёт сильной фиче-инженерии и AutoML. Однако команды выше в рейтинге использовали предобученные языковые модели (например, BERT) для обработки категорий и атрибутов, что дало прирост к качеству.
+training_hgb.ipynb – training and hyperparameter tuning
+
+hgb_inference.ipynb – full pipeline: from raw data to predictions
+
+## 🏁 Results
+AutoGluon (stacked): ROC-AUC 0.9216 – top 7 on the leaderboard
+HistGradientBoosting + Optuna: faster, slightly lower score, but more production-friendly
+
+## 🔍 Analysis
+The solution achieved a high result due to strong feature engineering and AutoML. However, teams ranked higher in the leaderboard utilized pre-trained language models (e.g., BERT) for processing categories and attributes, which led to an improvement in quality.
