@@ -1,6 +1,6 @@
 # OZON-Matching-Products
 ## Ozon Tech ML Competition: Product Matching
-This repository contains a solution to the product matching task based on product names, attributes, and images. The work was done as part of the Ozon Tech competition and achieved 7th place out of 110 teams with a ROC-AUC score of 0.9216.
+This repository contains a solution to the product matching task based on product names, attributes, and images. The work was done as part of the Ozon Tech competition and achieved 7th solo place out of 110 teams.
 
 ## 🚀 Task
 Develop a machine learning model that, given information about two products (text descriptions, images, attributes), predicts whether they are the same (target = 1) or not (target = 0).
