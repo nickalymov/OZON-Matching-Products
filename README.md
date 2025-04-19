@@ -31,9 +31,9 @@ Image embeddings: cosine and Euclidean distances, entropy
 
 For more details, see the notebooks:
 
-1_main_features.ipynb
+**1_main_features.ipynb**
 
-2_add_cat_features.ipynb
+**2_add_cat_features.ipynb**
 
 ## 🧠 Models
 ### 1. AutoGluon Tabular (0.9216)
@@ -45,9 +45,9 @@ zeroshot — for faster experimentation
 
 Files:
 
-autogluon.ipynb – training and hyperparameter tuning
+**autogluon.ipynb** – training and hyperparameter tuning
 
-ag_inference.ipynb – loading model predictions
+**ag_inference.ipynb** – loading model predictions
 
 📸 Models used within AutoGluon:
 ![image](https://github.com/user-attachments/assets/02dd26a5-79e8-48d6-b932-ed624a16e689)
@@ -64,9 +64,9 @@ Ready for production integration
 
 Files:
 
-training_hgb.ipynb – training and hyperparameter tuning
+**training_hgb.ipynb** – training and hyperparameter tuning
 
-hgb_inference.ipynb – full pipeline: from raw data to predictions
+**hgb_inference.ipynb** – full pipeline: from raw data to predictions
 
 ## 🏁 Results
 AutoGluon (stacked): ROC-AUC 0.9216 – top 7 on the leaderboard
