@@ -1,6 +1,7 @@
 # OZON-Matching-Products
 ## Ozon Tech ML Competition: Product Matching
-This repository contains a solution to the product matching task based on product names, attributes, and images. The work was done as part of the Ozon Tech competition and achieved 7th solo place out of 110 teams.
+This repository contains a solution to the product matching task based on product names, attributes, and images. The work was done as part of the Ozon Tech competition and achieved 8th solo place out of 110 teams.
+Link: [competition](https://codenrock.com/contests/e-cup-everything-as-code/leaderboards/16)
 
 ## 🚀 Task
 Develop a machine learning model that, given information about two products (text descriptions, images, attributes), predicts whether they are the same (target = 1) or not (target = 0).
@@ -69,7 +70,7 @@ Files:
 [hgb_inference.ipynb](https://github.com/nickalymov/OZON-Matching-Products/blob/main/hgb_inference.ipynb) – full pipeline: from raw data to predictions
 
 ## 🏁 Results
-AutoGluon (stacked): ROC-AUC 0.9216 – top 7 on the leaderboard
+AutoGluon (stacked): ROC-AUC 0.9216 – top 8 on the leaderboard
 HistGradientBoosting + Optuna: faster, slightly lower score, but more production-friendly
 
 ## 🔍 Analysis
